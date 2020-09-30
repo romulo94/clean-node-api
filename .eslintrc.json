@@ -17,6 +17,8 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
-    "keyword-spacing": ["error", { "before": true }]
+    "keyword-spacing": ["error", { "before": true }],
+    "typescript-eslint/comma-spacing": "off",
+    "typescript-eslint/return-await": "off"
   }
 }
