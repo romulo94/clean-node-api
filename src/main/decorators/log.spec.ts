@@ -8,7 +8,7 @@ import {
   ok,
   serverError,
   badRequest,
-} from '../../presentation/helpers/http-helper'
+} from '../../presentation/helpers/http/http-helper'
 import { LogErrorRepository } from '../../data/protocols'
 import { AccountModel } from '../../domain/models/account'
 
