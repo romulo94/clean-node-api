@@ -3,6 +3,6 @@ export * from '../../../domain/models/account'
 export {
   HashComparer,
   LoadAccountByEmailRepository,
-  TokenGenerator,
+  Encrypter,
   UpdateAccessTokenRepository,
 } from './../../protocols'
