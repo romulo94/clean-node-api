@@ -11,7 +11,6 @@ import {
   unauthorized,
   ok,
 } from '../../helpers/http/http-helper'
-import { MissingParamError, InvalidParamError } from '../../errors'
 
 export class LoginController implements Controller {
   private readonly validation: Validation
@@ -26,7 +25,7 @@ export class LoginController implements Controller {
       const { email, password } = httpRequest.body
       const error = this.validation.validate(httpRequest.body)
       if (error) return badRequest(error)
-      const accessToken = await this.authentication.auth(email, password)
+      const accessToken = await this.authentication.auth({ email, password })
       if (!accessToken) return unauthorized()
       return ok({
         accessToken,
