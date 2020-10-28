@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt'
-import { Hasher, HashComparer } from '../../data/protocols'
+import { Hasher, HashComparer } from '../../../data/protocols'
 
 export class BcryptAdapter implements Hasher, HashComparer {
   private readonly salt: number
