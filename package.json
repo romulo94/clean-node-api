@@ -31,26 +31,27 @@
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
     "prettier-config-standard": "^1.0.1",
+    "rimraf": "^3.0.2",
     "sucrase": "^3.15.0",
     "supertest": "^5.0.0",
     "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
   },
   "scripts": {
-    "start": "sucrase-node src/main/server.ts",
+    "start": "node dist/main/server.js",
+    "build": "rimraf dist && tsc",
+    "dev": "sucrase-node src/main/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
     "test:all": "yarn test -- --watch",
     "test:unit": "yarn test -- --watch -c jest-unit-config.js",
     "test:integration": "yarn test -- --watch -c jest-integration-config.js",
     "test:staged": "yarn test -- --findRelatedTests",
-    "test:ci": "yarn test --coverage",
-    "build": "tsc"
+    "test:ci": "yarn test --coverage"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
     "express": "^4.17.1",
-    "fast-glob": "^3.2.4",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.2",
     "validator": "^13.1.17"
