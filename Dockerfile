@@ -1,4 +1,4 @@
-FROM node:14.13
+FROM node:14.15
 WORKDIR /usr/src/clean-node-api
 COPY package.json .
-RUN npm install --only=prod
+RUN yarn --production
