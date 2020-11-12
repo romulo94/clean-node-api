@@ -29,6 +29,7 @@
     "husky": "^4.3.0",
     "jest": "^26.4.2",
     "lint-staged": "^10.4.0",
+    "nodemon": "^2.0.6",
     "prettier": "^2.1.2",
     "prettier-config-standard": "^1.0.1",
     "rimraf": "^3.0.2",
@@ -39,8 +40,8 @@
   "scripts": {
     "start": "node dist/main/server.js",
     "build": "rimraf dist && tsc",
-    "debug": "node --inspect=0.0.0.0:9222 --nolazy dist/main/server.js",
-    "up": "yarn build && docker-compose up -d",
+    "debug": "nodemon -L --watch ./dist --inspect=0.0.0.0:9222 --nolazy ./dist/main/server.js",
+    "up": "yarn build && docker-compose up -d && tsc -w",
     "down": "docker-compose down",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
